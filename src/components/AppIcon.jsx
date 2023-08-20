@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/AppIcon.css';
-import AboutMe from './Apps/AboutMe';
+import AppFramework from './Apps/AppFramework';
 
 const AppIcon = ({ app }) => {
     const [showPopup, setShowPopup] = useState(false);
@@ -13,7 +13,7 @@ const AppIcon = ({ app }) => {
             </div>
 
             {showPopup && (
-                <AboutMe setShowPopup={setShowPopup} app={app}/>
+                <AppFramework setShowPopup={setShowPopup} app={app}/>
             )}
         </div>
     );

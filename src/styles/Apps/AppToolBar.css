@@ -1,0 +1,73 @@
+.macos-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+.window-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.window-buttons :hover::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    z-index: 1;
+
+}
+
+
+
+
+.close-btn,
+.minimize-btn,
+.maximize-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;  /* To allow absolute positioning within */
+    font-family: Arial, sans-serif; 
+    font-size: 12px;     /* Adjust as needed */
+    color: #1b1a1a;
+}
+
+.close-btn:hover::before {
+    content: "x";
+}
+
+.minimize-btn:hover::before {
+    content: "-";
+}
+
+.maximize-btn:hover::before {
+    content: "+";
+}
+
+.close-btn {
+    background-color: #FF5F57;
+}
+
+.minimize-btn {
+    background-color: #FFBD2E;
+}
+
+.maximize-btn {
+    background-color: #27C93F;
+}
+
+.popup-content {
+    padding: 10px;
+}
