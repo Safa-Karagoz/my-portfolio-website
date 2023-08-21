@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;&family=Prata&display=swap');
+
+.about-container {
+    padding: 20px;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: linear-gradient(to bottom right, #f9f9f9, #dddddd);
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.text-section {
+    flex: 1;
+    padding-right: 20px;
+}
+.text-section h1 { 
+    font-family: 'Prata', serif;
+    color: rgb(231, 41, 13);
+    margin-top: 0px;
+}
+.text-section h4 { 
+    font-family: 'Prata', serif;
+    font-weight: 50;
+    margin-bottom: 5px;
+    
+}
+.text-section p { 
+    font-family: 'Lato', serif;
+    margin-top: 0px;
+    line-height: 150%;
+} 
+
+
+.social-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-buttons a img {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 10px; 
+    transition: opacity 0.3s ease;
+}
+
+.social-buttons a:hover img {
+    opacity: 0.7; 
+}
+
+.image-section img {
+    max-width: 200px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}

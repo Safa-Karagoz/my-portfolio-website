@@ -3,18 +3,27 @@ import '../../styles/Apps/AppFramework.css';
 import Draggable from 'react-draggable';
 
 import AppToolBar from './AppToolBar';
+import AboutMe from './AboutMe';
+
+
 
 
 const AppFramework = ({ setShowPopup, app }) => {
+
+   const renderApp = () => {
+      if (app.name === "About Me"){ 
+         return (<AboutMe />)
+      }
+      return null; 
+   }
+
    return (
       <Draggable handle='.app-toolbar'>
          <div className='app-container'>
             <div className='app-toolbar'>
                <AppToolBar setShowPopup={setShowPopup} />
             </div>
-            <div className="app-content">
-               <p>wpwpw</p>
-            </div>
+               {renderApp()}
          </div>
       </Draggable>
 

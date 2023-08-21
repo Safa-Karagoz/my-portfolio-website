@@ -7,14 +7,16 @@ import MacToolbar from '../components/MacToolBar';
 import Dock from '../components/Dock';
 
 // icons
+import AboutMeIcon from "../assets/app-icons/AboutMe-icon.png"
 import SafariIcon from "../assets/app-icons/Safari-icon.png"
 import MessagesIcon from "../assets/app-icons/Messages-icon.png"
 
 
 const DesktopWindow = ({ children }) => {
     const apps = [
-        { id: 1, name: 'Safari', iconSrc: SafariIcon },
-        { id: 2, name: 'Messages', iconSrc: MessagesIcon }
+        { id: 1, name: 'About Me', iconSrc: AboutMeIcon },
+        { id: 2, name: 'Safari', iconSrc: SafariIcon },
+        { id: 3, name: 'Messages', iconSrc: MessagesIcon }
     ];
     
     return (
