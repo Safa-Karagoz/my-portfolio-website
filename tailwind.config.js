@@ -11,6 +11,8 @@ module.exports = {
         'lato': ['Lato', 'sans-serif'],
         'libre-baskerville': ['Libre Baskerville', 'serif'],
         'pacifico': ['Pacifico', 'cursive'],
+        'urbanist': ['Urbanist', 'sans-serif'],
+        'ReThink': ['Rethink Sans', 'sans-serif'],
       },
       keyframes: {
         openApp: {

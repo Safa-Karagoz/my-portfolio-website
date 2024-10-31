@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AppToolBar = ({setShowPopup}) => {
+const AppToolBar = ({onClose}) => {
     const [isHovered, setIsHovered] = useState(false);
     
     const buttonClasses = "w-3 h-3 rounded-full border-0 outline-none p-0 cursor-pointer relative flex items-center justify-center transition-colors duration-200";
@@ -16,7 +16,7 @@ const AppToolBar = ({setShowPopup}) => {
                 >
                     <button 
                         className={`${buttonClasses} bg-[#FF5F57]`}
-                        onClick={() => setShowPopup(false)}
+                        onClick={onClose}
                     >
                         <span className={`${symbolClasses} -translate-y-[5px] font-bold ${
                             isHovered ? 'opacity-100' : 'opacity-0'
