@@ -60,9 +60,8 @@ const Section = ({ children, className = "" }) => {
    return (
       <div
          ref={sectionRef}
-         className={`min-h-full flex items-center transition-opacity duration-500 ${
-            isVisible ? 'opacity-100' : 'opacity-0'
-         } ${className}`}
+         className={`min-h-full flex items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'
+            } ${className}`}
       >
          {children}
       </div>
@@ -88,7 +87,7 @@ const Reminisce = () => {
    }, []);
 
    return (
-      <div 
+      <div
          ref={containerRef}
          className="w-[60vw] h-[70vh] bg-gradient-to-br from-[#1e201e] via-[#1e201e]/95 to-[#3d3e38]/90 overflow-y-auto snap-y snap-mandatory rounded-b-lg"
       >
@@ -106,13 +105,18 @@ const Reminisce = () => {
                         A companion for your loved one with dementia
                      </p>
                   </div>
-                  <button className="text-[#ede0cc] border border-[#d48311] hover:bg-[#d48311] transition-all p-2 px-4 rounded-md">
+                  <a
+                     href="https://reminisce-two.vercel.app"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="inline-block text-[#ede0cc] border border-[#d48311] hover:bg-[#d48311] transition-all p-2 px-4 rounded-md"
+                  >
                      <span className="font-medium">Check it out</span>
-                  </button>
+                  </a>
                </div>
 
-               <div className="space-y-6">
-                  <div className="w-full h-40 max-w-md mx-auto">
+               <div className="space-y-6 items-center justify-center">
+                  <div className="flex justify-center items-center">
                      <LandingModel />
                   </div>
                   <div className="text-2xl text-[#ede0cc] text-center font-semibold">
@@ -222,8 +226,8 @@ const Reminisce = () => {
                   </div>
                   <p className="text-[#ede0cc]">
                      Built together with {" "}
-                     <a 
-                        href="https://github.com/yusufsallam64" 
+                     <a
+                        href="https://github.com/yusufsallam64"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[#d48311] hover:text-[#b36f0e] transition-colors underline"
