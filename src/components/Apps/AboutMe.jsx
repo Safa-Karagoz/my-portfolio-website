@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 /* asset imports */
 import PersonalPic from "../../assets/about-me/PersonalPic.png"
 import githubIcon from "../../assets/about-me/github-icon.png"
@@ -7,45 +6,100 @@ import instagramIcon from "../../assets/about-me/instagram-icon.png"
 import emailIcon from "../../assets/about-me/email-icon.png"
 import linkedinIcon from "../../assets/about-me/linkedin-icon.png"
 
-const AboutMe = () => {
-    return (
-        <div className="p-5 max-w-[600px] flex justify-center items-center shadow-lg font-sans rounded-b-lg bg-gradient-to-br from-[#f9f9f9] to-[#dddddd]">
-            <div className="flex items-center">
-                <div className="flex-1 pr-5">
-                    <h4 className="font-prata font-light mb-1">ABOUT ME</h4>
-                    <h1 className="font-prata text-[#e7290d] mt-0">Safa Karagoz</h1>
-                    <p className="font-lato mt-0 leading-[150%]">
-                        Hello! I'm Safa Karagoz, currently a senior at Bergen County Academies. Over the years,
-                        I've developed a strong passion for programming and digital innovation.
+const Notification = ({ message, isVisible, onHide }) => {
+    if (!isVisible) return null;
 
-                        This website is a reflection of my journey. I wanted to break away from traditional portfolio designs 
-                        and craft something more interactive and engaging.
-                        Here, each app icon you see represents a project I've worked on. Double-clicking any of them will open a 
-                        window that provides a deeper insight into the project. It's my way of blending creativity with technology, 
-                        offering a unique experience while showcasing my work. Enjoy!
-                    </p>
-                    <div className="mt-4 flex gap-2.5">
-                        <SocialButton href="https://github.com/Safa-Karagoz" icon={githubIcon} alt="GitHub" />
-                        <SocialButton href="https://www.instagram.com/Safa_Karagoz06/" icon={instagramIcon} alt="Instagram" />
-                        <SocialButton href="mailto:safakaragoz59@gmail.com" icon={emailIcon} alt="Email" />
-                        <SocialButton href="https://www.linkedin.com/in/safa-karagoz06" icon={linkedinIcon} alt="LinkedIn" />
+    return (
+        <div 
+            className={`
+                fixed top-4 right-4 
+                bg-black/90 text-white 
+                px-4 py-2 rounded-lg 
+                shadow-lg
+                animate-[fadeIn_200ms_ease-out]
+                transition-all
+                flex items-center gap-2
+            `}
+        >
+            <span>✓</span>
+            <span>{message}</span>
+        </div>
+    );
+};
+
+const SocialButton = ({ href, icon, alt }) => {
+    return (
+        <a 
+            href={href} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="transition-transform hover:scale-110"
+        >
+            <img src={icon} alt={alt} title={alt} className="w-7 h-7"/>
+        </a>
+    );
+}
+
+const AboutMe = () => {
+    const [showNotification, setShowNotification] = useState(false);
+
+    const handleEmailClick = (e) => {
+        e.preventDefault();
+        const email = 'safakaragoz59@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+            setShowNotification(true);
+            setTimeout(() => {
+                setShowNotification(false);
+            }, 2000);
+        });
+    };
+
+    return (
+        <div className="p-8 max-w-[600px] flex justify-center items-center shadow-lg font-sans rounded-b-lg bg-gradient-to-br from-[#f9f9f9] to-[#dddddd]">
+            <Notification 
+                message="Email copied!" 
+                isVisible={showNotification} 
+                onHide={() => setShowNotification(false)}
+            />
+
+            <div className="flex flex-col items-center text-center space-y-6">
+                <div className="space-y-6 animate-[fadeInUp_1000ms_ease-out]">
+                    <img 
+                        src={PersonalPic} 
+                        alt="Safa Karagoz" 
+                        className="w-48 h-48 object-cover shadow-lg rounded-lg mx-auto"
+                    />
+                    <div className="space-y-2">
+                        <h1 className="font-prata text-3xl text-[#e7290d]">
+                            Hi, I'm Safa.
+                        </h1>
+                        <p className="font-lato text-lg">
+                            I like to code cool shit.
+                        </p>
+                        <p className="font-lato text-sm text-gray-600">
+                            Bergen County Academies '24 & Rutgers '28
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <img src={PersonalPic} alt="Safa Karagoz" className="max-w-[200px] shadow-lg rounded-lg" />
+
+                <div className="flex gap-4 pt-2 animate-[fadeInUp_1000ms_ease-out_200ms]">
+                    <SocialButton href="https://github.com/Safa-Karagoz" icon={githubIcon} alt="GitHub" />
+                    <SocialButton href="https://www.instagram.com/Safa_Karagoz06/" icon={instagramIcon} alt="Instagram" />
+                    <button 
+                        onClick={handleEmailClick}
+                        className="transition-transform hover:scale-110 relative group"
+                        title="Click to copy email"
+                    >
+                        <img src={emailIcon} alt="Copy Email" className="w-7 h-7"/>
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/75 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                            Click to copy email
+                        </span>
+                    </button>
+                    <SocialButton href="https://www.linkedin.com/in/safa-karagoz06" icon={linkedinIcon} alt="LinkedIn" />
                 </div>
             </div>
         </div>
     );
 }
-
-const SocialButton = ({ href, icon, alt }) => {
-    return (
-        <a href={href} target="_blank" rel="noopener noreferrer" className=''>
-            <img src={icon} alt={alt} title={alt} className='w-7 h-7'/>
-        </a>
-    );
-}
-
 
 export default AboutMe;
