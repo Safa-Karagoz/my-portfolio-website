@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import AppFramework from './Apps/AppFramework';
 
 const AppIcon = ({ app, isOpen, zIndex, onOpen, onClose, onFocus, isLoading }) => {
+    const iconRef = useRef(null);
+
     const handleDoubleClick = () => {
         onOpen();
     };
@@ -9,6 +11,7 @@ const AppIcon = ({ app, isOpen, zIndex, onOpen, onClose, onFocus, isLoading }) =
     return (
         <>
             <div
+                ref={iconRef}
                 className={`
                     flex flex-col p-3 cursor-pointer w-[70px] h-[110px] 
                     items-center text-center mb-auto box-border mr-3
@@ -30,17 +33,17 @@ const AppIcon = ({ app, isOpen, zIndex, onOpen, onClose, onFocus, isLoading }) =
                 </p>
             </div>
             {isOpen && (
-                <div className="fixed inset-0" style={{ zIndex: zIndex }}>
+                <div className="fixed" style={{ zIndex: zIndex }}>
                     <AppFramework
                         app={app}
                         zIndex={zIndex}
                         onClose={onClose}
                         onFocus={onFocus}
                     />
-                </div>
+                </div>  
             )}
-        </>
-    );
+                </>
+            );
 };
 
-export default AppIcon;
+            export default AppIcon;

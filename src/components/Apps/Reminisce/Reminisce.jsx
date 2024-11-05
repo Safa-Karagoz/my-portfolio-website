@@ -89,7 +89,7 @@ const Reminisce = () => {
    return (
       <div
          ref={containerRef}
-         className="w-[60vw] h-[70vh] bg-gradient-to-br from-[#1e201e] via-[#1e201e]/95 to-[#3d3e38]/90 overflow-y-auto snap-y snap-mandatory rounded-b-lg"
+         className="w-[60vw] h-[70vh] bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
       >
          {/* First Section */}
          <Section className="snap-start p-8">

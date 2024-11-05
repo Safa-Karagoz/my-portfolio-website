@@ -36,24 +36,27 @@ const AppFramework = ({ onClose, app }) => {
     }
 
     return (
-        <div className="fixed inset-0 mt-6 flex items-center justify-center pointer-events-none">
+        <div className="fixed inset-0 pointer-events-none">
             <Draggable
                 handle=".app-toolbar"
                 bounds="parent"
                 onStart={bringToFront}
             >
                 <div
-                    className="pointer-events-auto bg-inherit rounded-lg shadow-lg animate-[openApp_0.2s_ease-out] absolute"
+                    className="pointer-events-auto bg-inherit rounded-lg shadow-lg animate-[openApp_0.2s_ease-out] absolute top-[10%] left-[20%] -translate-x-1/2 -translate-y-1/2"
                     style={{ zIndex }}
+                    onClick={bringToFront}
                 >
-                    <div className="app-toolbar">
+                    <div className="app-toolbar cursor-move">
                         <AppToolBar onClose={onClose} color={app.color}/>
                     </div>
-                    {renderApp()}
+                    <div onClick={e => e.stopPropagation()}>
+                        {renderApp()}
+                    </div>
                 </div>
             </Draggable>
         </div>
     );
 }
 
-export default AppFramework
+export default AppFramework;
