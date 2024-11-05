@@ -164,7 +164,7 @@ const CoreParticle = () => {
 
 const LandingModel = () => {
   return (
-    <div style={{ width: '40vw', height: '40vh' }}>
+    <div style={{ width: '40vw', height: '40vh'}}>
       <Canvas
         camera={{ 
           position: [0, 0, 2.5], 
@@ -172,7 +172,7 @@ const LandingModel = () => {
           near: 0.1,
           far: 1000
         }}
-        style={{ width: '40vw', height: '40vh' }}
+        // style={{ width: '20vw', height: '40vh' }}
       >
         <ambientLight intensity={0.2} />
         <pointLight position={[10, 10, 10]} intensity={0.5} />

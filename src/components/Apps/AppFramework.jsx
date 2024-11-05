@@ -4,8 +4,9 @@ import AppToolBar from './AppToolBar';
 import AboutMe from './AboutMe';
 import InteractiveGlobe from './InteractiveGlobe';
 import Reminisce from './Reminisce';
+import FriendAnalytics from './FriendAnalytics';
 
-let windowCounter = 1000; 
+let windowCounter = 1000;
 
 const AppFramework = ({ onClose, app }) => {
     const [zIndex, setZIndex] = useState(() => windowCounter++);
@@ -28,6 +29,9 @@ const AppFramework = ({ onClose, app }) => {
         if (app.name === "Reminisce") {
             return (<Reminisce />)
         }
+        if (app.name === "Friend.tech Analytics") {
+            return (<FriendAnalytics />)
+        }
         return null;
     }
 
@@ -39,11 +43,11 @@ const AppFramework = ({ onClose, app }) => {
                 onStart={bringToFront}
             >
                 <div
-                    className="pointer-events-auto bg-white rounded-lg shadow-lg animate-[openApp_0.2s_ease-out] absolute"
+                    className="pointer-events-auto bg-inherit rounded-lg shadow-lg animate-[openApp_0.2s_ease-out] absolute"
                     style={{ zIndex }}
                 >
                     <div className="app-toolbar">
-                        <AppToolBar onClose={onClose} />
+                        <AppToolBar onClose={onClose} color={app.color}/>
                     </div>
                     {renderApp()}
                 </div>
