@@ -118,7 +118,6 @@ const FriendAnalytics = () => {
         </div>
       </div>
 
-
       {/* Desktop Sidebar */}
       <div className="hidden md:flex w-64 border-r border-gray-800 flex-col">
         <div className="p-4 border-b border-gray-800">
@@ -144,9 +143,9 @@ const FriendAnalytics = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="p-6 font-Kanit">
-          <div className="w-full max-w-6xl mx-auto px-4 py-6">
+      <div className="flex-1 overflow-y-auto flex flex-col">
+        <div className="p-6 font-Kanit flex flex-col flex-1">
+          <div className="w-full max-w-6xl mx-auto px-4 py-6 flex flex-col flex-1">
             {renderPage()}
           </div>
         </div>
