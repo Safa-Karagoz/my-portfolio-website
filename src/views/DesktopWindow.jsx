@@ -20,13 +20,13 @@ const DesktopWindow = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const apps = [
-        { id: 1, name: 'About Me', iconSrc: AboutMeIcon },
-        { id: 2, name: 'Reminisce', iconSrc: ReminisceIcon },
-        { id: 3, name: 'Friend.tech Analytics', iconSrc: FriendIcon },
-        { id: 4, name: 'Interactive Globe', iconSrc: InteractiveGlobeIcon },
-        { id: 5, name: 'Neon Night', iconSrc: NeonNightIcon },
-        { id: 6, name: 'Teacher Wordle', iconSrc: TeacherWordle },
-        { id: 7, name: 'SeniorMania Leaderboard', iconSrc: SeniorManiaLeaderboard },
+        { id: 1, name: 'About Me', iconSrc: AboutMeIcon, color: '#f9f9f9' },
+        { id: 2, name: 'Reminisce', iconSrc: ReminisceIcon, color: '#1e201e' },
+        { id: 3, name: 'Friend.tech Analytics', iconSrc: FriendIcon, color: '#1a1b1e' },
+        { id: 4, name: 'Interactive Globe', iconSrc: InteractiveGlobeIcon, color: '#FDFDFA' },
+        { id: 5, name: 'Neon Night', iconSrc: NeonNightIcon, color: '#f0f0f0' },
+        // { id: 6, name: 'Teacher Wordle', iconSrc: TeacherWordle, color: '#f0f0f0' },
+        // { id: 7, name: 'SeniorMania Leaderboard', iconSrc: SeniorManiaLeaderboard, color: '#f0f0f0' },
     ];
 
     const bringToFront = (appId) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Typewriter from 'typewriter-effect'
 import LandingModel from './LandingModel'
-import teamPhoto from "../../assets/reminisce/team-photo.jpg"
+import teamPhoto from "../../../assets/reminisce/team-photo.jpg"
 import { ChevronDown, Brain, Users, MessageSquare, Code, Trophy, Github, Youtube } from 'lucide-react'
 
 const ScrollIndicator = () => {

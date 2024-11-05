@@ -3,8 +3,8 @@ import Draggable from 'react-draggable';
 import AppToolBar from './AppToolBar';
 import AboutMe from './AboutMe';
 import InteractiveGlobe from './InteractiveGlobe';
-import Reminisce from './Reminisce';
-import FriendAnalytics from './FriendAnalytics';
+import Reminisce from './Reminisce/Reminisce';
+import FriendAnalytics from './FriendAnalytics/FriendAnalytics';
 
 let windowCounter = 1000;
 

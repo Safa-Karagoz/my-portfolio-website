@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Your custom CSS can go here */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap'); /* Reminisce */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap'); /* Friend.tech Analytics */
 
+
+:root{ 
+   background-color: black;
+}
 
 @keyframes fadeInUp {
    from {

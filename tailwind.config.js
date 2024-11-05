@@ -13,6 +13,7 @@ module.exports = {
         'pacifico': ['Pacifico', 'cursive'],
         'urbanist': ['Urbanist', 'sans-serif'],
         'ReThink': ['Rethink Sans', 'sans-serif'],
+        'Kanit': ['Kanit', 'sans-serif'],
       },
       keyframes: {
         openApp: {

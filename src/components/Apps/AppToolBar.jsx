@@ -23,7 +23,7 @@ const AppToolBar = ({ onClose, color }) => {
                         className={`${buttonClasses} bg-[#FF5F57]`}
                         onClick={handleClose}
                     >
-                        <span className={`${symbolClasses} -translate-y-[5px] font-bold ${isHovered ? 'opacity-100' : 'opacity-0'
+                        <span className={`${symbolClasses} -translate-y-[6px] font-bold ${isHovered ? 'opacity-100' : 'opacity-0'
                             }`}>
                             ×
                         </span>
