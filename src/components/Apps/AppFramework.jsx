@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import AppToolBar from './AppToolBar';
 import AboutMe from './AboutMe';
-import InteractiveGlobe from './InteractiveGlobe';
+import InteractiveGlobe from './InteractiveGlobe/InteractiveGlobe';
 import Reminisce from './Reminisce/Reminisce';
 import FriendAnalytics from './FriendAnalytics/FriendAnalytics';
 
