@@ -24,7 +24,7 @@ const DesktopWindow = () => {
         { id: 2, name: 'Reminisce', iconSrc: ReminisceIcon, color: '#1e201e' },
         { id: 3, name: 'Friend.tech Analytics', iconSrc: FriendIcon, color: '#1a1b1e' },
         { id: 4, name: 'Interactive Globe', iconSrc: InteractiveGlobeIcon, color: '#1A1A2E' },
-        { id: 5, name: 'Neon Night', iconSrc: NeonNightIcon, color: '#f0f0f0' },
+        { id: 5, name: 'Neon Night', iconSrc: NeonNightIcon, color: '#1a1122' },
         // { id: 6, name: 'Teacher Wordle', iconSrc: TeacherWordle, color: '#f0f0f0' },
         // { id: 7, name: 'SeniorMania Leaderboard', iconSrc: SeniorManiaLeaderboard, color: '#f0f0f0' },
     ];

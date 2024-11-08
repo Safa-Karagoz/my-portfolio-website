@@ -5,6 +5,7 @@ import AboutMe from './AboutMe';
 import InteractiveGlobe from './InteractiveGlobe/InteractiveGlobe';
 import Reminisce from './Reminisce/Reminisce';
 import FriendAnalytics from './FriendAnalytics/FriendAnalytics';
+import NeonNight from './NeonNight';
 
 let windowCounter = 1000;
 
@@ -31,6 +32,9 @@ const AppFramework = ({ onClose, app }) => {
         }
         if (app.name === "Friend.tech Analytics") {
             return (<FriendAnalytics />)
+        }
+        if (app.name === "Neon Night") {
+            return (<NeonNight />)
         }
         return null;
     }
