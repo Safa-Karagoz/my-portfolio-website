@@ -77,7 +77,7 @@ const Reminisce = () => {
       const handleResize = () => {
          setIsMobile(window.innerWidth < 768);
       };
-
+      
       handleResize();
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
@@ -100,76 +100,77 @@ const Reminisce = () => {
    return (
       <div
          ref={containerRef}
-         className="w-full h-full bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
+         className="w-full h-[600px] md:h-[700px] bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
       >
-         <Section className="snap-start p-4 md:p-8">
+         {/* First Section */}
+         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
             <div className="max-w-4xl mx-auto w-full">
-               {/* Mobile Layout for Landing Model */}
-               <div className="block md:hidden mb-8">
-                  <div className="flex flex-col items-center">
-                     <div className="w-48 h-48 flex justify-center items-center">
-                        <LandingModel />
-                     </div>
-                     <div className="text-xl text-[#ede0cc] text-center font-semibold mt-4">
-                        <Typewriter
-                           options={{
-                              strings: ['How are you?', 'Your AI Companion', 'Always Here to Help'],
-                              autoStart: true,
-                              loop: true,
-                              delay: 75,
-                              deleteSpeed: 50,
-                           }}
-                        />
-                     </div>
-                  </div>
-               </div>
+                {/* Mobile Layout (LandingModel on top) */}
+                <div className="block md:hidden mb-8">
+                    <div className="flex flex-col items-center">
+                        <div className="w-48 h-48 flex justify-center items-center">
+                            <LandingModel />
+                        </div>
+                        <div className="text-xl text-[#ede0cc] text-center font-semibold mt-4">
+                            <Typewriter
+                                options={{
+                                    strings: ['How are you?', 'Your AI Companion', 'Always Here to Help'],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 75,
+                                    deleteSpeed: 50,
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
 
-               {/* Desktop and Mobile Content */}
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                  <div className="space-y-6 text-center md:text-left">
-                     <div>
-                        <h1 className="text-4xl md:text-5xl font-bold">
-                           <span className="bg-gradient-to-r from-[#697565] to-[#d48311] bg-clip-text text-transparent">
-                              Reminisce
-                           </span>
-                        </h1>
-                        <p className="text-base md:text-lg text-[#ede0cc] font-semibold mt-2">
-                           A companion for your loved one with dementia
-                        </p>
-                     </div>
-                     <a
-                        href="https://reminisce-two.vercel.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block text-[#ede0cc] border border-[#d48311] hover:bg-[#d48311] transition-all p-2 px-4 rounded-md"
-                     >
-                        <span className="font-medium">Check it out</span>
-                     </a>
-                  </div>
+                {/* Desktop and Mobile Content */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div className="space-y-6 text-center md:text-left">
+                        <div>
+                            <h1 className="text-4xl md:text-5xl font-bold">
+                                <span className="bg-gradient-to-r from-[#697565] to-[#d48311] bg-clip-text text-transparent">
+                                    Reminisce
+                                </span>
+                            </h1>
+                            <p className="text-base md:text-lg text-[#ede0cc] font-semibold mt-2">
+                                A companion for your loved one with dementia
+                            </p>
+                        </div>
+                        <a
+                            href="https://reminisce-two.vercel.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block text-[#ede0cc] border border-[#d48311] hover:bg-[#d48311] transition-all p-2 px-4 rounded-md"
+                        >
+                            <span className="font-medium">Check it out</span>
+                        </a>
+                    </div>
 
-                  {/* Desktop-only LandingModel */}
-                  <div className="hidden md:flex flex-col space-y-6 items-center justify-center">
-                     <div className="flex justify-center items-center">
-                        <LandingModel />
-                     </div>
-                     <div className="text-2xl text-[#ede0cc] text-center font-semibold">
-                        <Typewriter
-                           options={{
-                              strings: ['How are you?', 'Your AI Companion', 'Always Here to Help'],
-                              autoStart: true,
-                              loop: true,
-                              delay: 75,
-                              deleteSpeed: 50,
-                           }}
-                        />
-                     </div>
-                  </div>
-               </div>
+                    {/* Desktop-only LandingModel */}
+                    <div className="hidden md:flex flex-col space-y-6 items-center justify-center">
+                        <div className="flex justify-center items-center">
+                            <LandingModel />
+                        </div>
+                        <div className="text-2xl text-[#ede0cc] text-center font-semibold">
+                            <Typewriter
+                                options={{
+                                    strings: ['How are you?', 'Your AI Companion', 'Always Here to Help'],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 75,
+                                    deleteSpeed: 50,
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
          </Section>
 
          {/* Mission Section */}
-         <Section className="snap-start p-4 md:p-8">
+         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
             <div className="max-w-3xl mx-auto text-center">
                <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-6">Our Mission</h2>
                <p className="text-base md:text-lg text-[#ede0cc] leading-relaxed">
@@ -180,7 +181,7 @@ const Reminisce = () => {
          </Section>
 
          {/* Features Section */}
-         <Section className="snap-start p-4 md:p-8">
+         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
             <div className="max-w-4xl mx-auto w-full">
                <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-8 text-center">Key Features</h2>
                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -209,7 +210,7 @@ const Reminisce = () => {
          </Section>
 
          {/* HackRU Section */}
-         <Section className="snap-start p-4 md:p-8">
+         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
             <div className="max-w-4xl mx-auto w-full text-center">
                <div className="mb-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-2">
