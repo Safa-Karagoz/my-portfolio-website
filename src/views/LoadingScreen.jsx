@@ -49,7 +49,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
       </div>
 
       <div className="mt-8 text-white text-sm font-light">
-        Logging into Safa Karagoz
+        Logging into Safa's Macbook Pro
       </div>
     </div>
   );

@@ -56,20 +56,16 @@ const InteractiveGlobe = () => {
     return (
         <div
             ref={containerRef}
-            className="w-full h-[600px] overflow-y-auto rounded-b-lg font-sans bg-gradient-to-br from-[#2D1A39] via-[#1F1A39] to-[#1A1A2E]"
-            style={{
-                width: dimensions.width,
-                height: dimensions.height
-            }}
+            className="w-full h-[600px] overflow-y-auto overflow-x-hidden rounded-b-lg font-sans bg-gradient-to-br from-[#2D1A39] via-[#1F1A39] to-[#1A1A2E]"
         >
             {!showGlobe ? (
-                <div className="p-8 h-full flex flex-col">
-                    <div className="max-w-4xl mx-auto space-y-8 flex-grow ">
+                <div className="p-4 md:p-8 h-full flex flex-col">
+                    <div className="max-w-4xl mx-auto space-y-6 md:space-y-8 flex-grow w-full">
                         <div className="text-center space-y-4">
-                            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400">
+                            <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400">
                                 Valentine's Day Interactive Globe
                             </h1>
-                            <p className="text-pink-100 text-lg max-w-2xl mx-auto">
+                            <p className="text-pink-100 text-base md:text-lg max-w-2xl mx-auto px-2">
                                 An immersive digital experience uniting the audience in a celebration
                                 of love and beauty across geographies.
                             </p>
@@ -85,17 +81,17 @@ const InteractiveGlobe = () => {
                             </button>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid md:grid-cols-2 gap-4 px-2">
                             {features.map((feature, index) => (
                                 <FeatureCard key={index} {...feature} />
                             ))}
                         </div>
 
-                        <div className="text-center space-y-3 ">
-                            <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400">
+                        <div className="text-center space-y-3 px-2">
+                            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400">
                                 Built With
                             </h2>
-                            <div className="flex justify-center gap-4">
+                            <div className="flex flex-wrap justify-center gap-2 md:gap-4">
                                 {["MongoDB", "Express", "React", "Node.js"].map((tech, index) => (
                                     <span
                                         key={index}
@@ -108,7 +104,7 @@ const InteractiveGlobe = () => {
                         </div>
                     </div>
 
-                    <div className="text-center mt-6">
+                    <div className="text-center mt-3 px-2">
                         <p className="text-pink-200/60 text-sm">
                             Built with{' '}
                             <a
@@ -131,7 +127,7 @@ const InteractiveGlobe = () => {
                         </p>
                     </div>
                 </div>
-            ) : (      // Globe View
+            ) : (
                 <div className="w-full h-full relative">
                     <GlobeRender />
 
