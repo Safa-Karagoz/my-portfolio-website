@@ -60,8 +60,12 @@ const Section = ({ children, className = "" }) => {
    return (
       <div
          ref={sectionRef}
-         className={`min-h-full flex items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'
-            } ${className}`}
+         className={`
+            w-full h-full snap-start
+            transition-opacity duration-500 
+            ${isVisible ? 'opacity-100' : 'opacity-0'}
+            ${className}
+         `}
       >
          {children}
       </div>
@@ -100,10 +104,10 @@ const Reminisce = () => {
    return (
       <div
          ref={containerRef}
-         className="w-full h-[500px] md:h-[600px] bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
+         className="w-full h-[600px] bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
       >
-         {/* First Section */}
-         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
+         {/* Hero Section */}
+         <Section className="p-4 md:p-8 flex items-center">
             <div className="max-w-4xl mx-auto w-full">
                 {/* Mobile Layout (LandingModel on top) */}
                 <div className="block md:hidden mb-8">
@@ -166,11 +170,12 @@ const Reminisce = () => {
                         </div>
                     </div>
                 </div>
+                <ScrollIndicator />
             </div>
          </Section>
 
          {/* Mission Section */}
-         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
+         <Section className="p-4 md:p-8 flex items-center">
             <div className="max-w-3xl mx-auto text-center">
                <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-6">Our Mission</h2>
                <p className="text-base md:text-lg text-[#ede0cc] leading-relaxed">
@@ -181,7 +186,7 @@ const Reminisce = () => {
          </Section>
 
          {/* Features Section */}
-         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
+         <Section className="p-4 md:p-8 overflow-y-auto">
             <div className="max-w-4xl mx-auto w-full">
                <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-8 text-center">Key Features</h2>
                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -210,70 +215,70 @@ const Reminisce = () => {
          </Section>
 
          {/* HackRU Section */}
-         <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">
+         <Section className="p-4 md:p-8 flex items-center">
             <div className="max-w-4xl mx-auto w-full text-center">
-               <div className="mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-2">
-                     Built for HackRU 2024
-                  </h2>
-                  <h3 className="text-lg text-[#ede0cc]">
-                     Placed Second in NeuroScience Track
-                  </h3>
-               </div>
-
-               <div className="flex flex-wrap gap-4 justify-center mb-8">
-                  <a
-                     href="https://github.com/yusufsallam64/reminisce"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="flex items-center gap-2 bg-[#1e201e] text-[#ede0cc] px-4 py-2 rounded-lg font-semibold hover:bg-[#2d2f2d] transition-all border border-[#d48311]/20 group"
-                  >
-                     <Github className="w-5 h-5 transition-transform group-hover:rotate-12" />
-                     View on GitHub
-                  </a>
-                  <a
-                     href="https://devpost.com/software/reminisce-er4lyh"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="flex items-center gap-2 bg-[#d48311] text-[#1e201e] px-4 py-2 rounded-lg font-semibold hover:bg-[#d48311]/90 transition-all"
-                  >
-                     <Trophy className="w-5 h-5" />
-                     View on Devpost
-                  </a>
-                  <a
-                     href="https://www.youtube.com/watch?v=x8P4OGh6Dks"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="flex items-center gap-2 bg-[#1e201e] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#2d2f2d] transition-all border border-[#d48311]/20"
-                  >
-                     <Youtube className="w-5 h-5" />
-                     Watch Demo
-                  </a>
-               </div>
-
-               <div className="flex flex-col items-center">
-                  <div className="w-48 h-48 mb-4 overflow-hidden rounded-lg border-2 border-[#d48311]/20">
-                     <img
-                        src={teamPhoto}
-                        alt="Team Photo"
-                        className="w-full h-full object-cover"
-                     />
+                  <div className="mb-8">
+                     <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-2">
+                        Built for HackRU 2024
+                     </h2>
+                     <h3 className="text-lg text-[#ede0cc]">
+                        Placed Second in NeuroScience Track
+                     </h3>
                   </div>
-                  <p className="text-[#ede0cc]">
-                     Built together with {" "}
+
+                  <div className="flex flex-wrap gap-4 justify-center mb-8">
                      <a
-                        href="https://github.com/yusufsallam64"
+                        href="https://github.com/yusufsallam64/reminisce"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#d48311] hover:text-[#b36f0e] transition-colors underline"
+                        className="flex items-center gap-2 bg-[#1e201e] text-[#ede0cc] px-4 py-2 rounded-lg font-semibold hover:bg-[#2d2f2d] transition-all border border-[#d48311]/20 group"
                      >
-                        Yusuf Sallam
+                        <Github className="w-5 h-5 transition-transform group-hover:rotate-12" />
+                        View on GitHub
                      </a>
-                  </p>
+                     <a
+                        href="https://devpost.com/software/reminisce-er4lyh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-[#d48311] text-[#1e201e] px-4 py-2 rounded-lg font-semibold hover:bg-[#d48311]/90 transition-all"
+                     >
+                        <Trophy className="w-5 h-5" />
+                        View on Devpost
+                     </a>
+                     <a
+                        href="https://www.youtube.com/watch?v=x8P4OGh6Dks"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-[#1e201e] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#2d2f2d] transition-all border border-[#d48311]/20"
+                     >
+                        <Youtube className="w-5 h-5" />
+                        Watch Demo
+                     </a>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                     <div className="w-48 h-48 mb-4 overflow-hidden rounded-lg border-2 border-[#d48311]/20">
+                        <img
+                           src={teamPhoto}
+                           alt="Team Photo"
+                           className="w-full h-full object-cover"
+                        />
+                     </div>
+                     <p className="text-[#ede0cc]">
+                        Built together with {" "}
+                        <a
+                           href="https://github.com/yusufsallam64"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-[#d48311] hover:text-[#b36f0e] transition-colors underline"
+                        >
+                           Yusuf Sallam
+                        </a>
+                     </p>
+                  </div>
                </div>
-            </div>
-         </Section>
-      </div>
+            </Section>
+         </div>
    );
 };
 
