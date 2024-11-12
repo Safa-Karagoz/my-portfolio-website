@@ -32,10 +32,10 @@ const NeonNight = () => {
    );
 
    const CharacterSelect = ({ side, characterName }) => (
-      <div className={`flex flex-col items-center ${side === 'left' ? 'pr-4' : 'pl-4'}`}>
+      <div className={`flex flex-col items-center ${side === 'left' ? 'pr-2 md:pr-4' : 'pl-2 md:pl-4'}`}>
          <div className="w-full text-center mb-2">
             <h3 className={`
-               text-2xl font-bold tracking-wider
+               text-lg md:text-2xl font-bold tracking-wider
                ${side === 'left' ? 'text-cyan-400' : 'text-fuchsia-400'}
                animate-pulse drop-shadow-lg
                [text-shadow:0_0_10px_${side === 'left' ? '#22d3ee' : '#e879f9'}]
@@ -46,7 +46,7 @@ const NeonNight = () => {
 
          {/* Character Display */}
          <div className={`
-            relative w-48 h-72 
+            relative w-32 md:w-48 h-48 md:h-72 
             flex items-center justify-center 
             mb-4
             before:content-[''] 
@@ -89,7 +89,7 @@ const NeonNight = () => {
          </div>
 
          {/* Characters Icons */}
-         <div className="flex gap-2">
+         <div className="flex gap-1 md:gap-2">
             {[icon0, icon1, icon2, icon3].map((icon, index) => (
                <div
                   key={index}
@@ -103,7 +103,7 @@ const NeonNight = () => {
                      src={icon}
                      alt={`Icon ${index}`}
                      className={`
-                        w-10 h-10 object-cover 
+                        w-8 h-8 md:w-10 md:h-10 object-cover 
                         rounded-lg 
                         border 
                         ${side === 'left'
