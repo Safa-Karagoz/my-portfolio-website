@@ -5,7 +5,6 @@ import wifiIcon from '../assets/mac-tool-bar/wifi-icon.png';
 import batteryIcon from '../assets/mac-tool-bar/battery-icon.png';
 import controlCenterIcon from '../assets/mac-tool-bar/control-center-icon.webp';
 
-
 const MacToolbar = () => {
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
@@ -32,12 +31,12 @@ const MacToolbar = () => {
             <div>
                 <span className="mr-4 text-sm"></span>
                 <span className="mx-2 font-bold">Finder</span>
-                <span className="mx-2">File</span>
-                <span className="mx-2">Edit</span>
-                <span className="mx-2">View</span>
-                <span className="mx-2">Go</span>
-                <span className="mx-2">Window</span>
-                <span className="mx-2">Help</span>
+                <span className="hidden md:inline-block mx-2">File</span>
+                <span className="hidden md:inline-block mx-2">Edit</span>
+                <span className="hidden md:inline-block mx-2">View</span>
+                <span className="hidden md:inline-block mx-2">Go</span>
+                <span className="hidden md:inline-block mx-2">Window</span>
+                <span className="hidden md:inline-block mx-2">Help</span>
             </div>
             <div className="flex flex-row-reverse gap-4">
                 <span className=''>{formattedDate} {formattedTime}</span>

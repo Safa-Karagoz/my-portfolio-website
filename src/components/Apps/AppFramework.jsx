@@ -11,6 +11,7 @@ let windowCounter = 1000;
 
 const AppFramework = ({ onClose, app }) => {
     const [zIndex, setZIndex] = useState(() => windowCounter++);
+    const [isMobile, setIsMobile] = useState(false);
 
     const bringToFront = () => {
         setZIndex(windowCounter++);
@@ -18,6 +19,14 @@ const AppFramework = ({ onClose, app }) => {
 
     useEffect(() => {
         setZIndex(windowCounter++);
+        
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     const renderApp = () => {
@@ -45,13 +54,25 @@ const AppFramework = ({ onClose, app }) => {
                 handle=".app-toolbar"
                 bounds="parent"
                 onStart={bringToFront}
+                disabled={isMobile} // Disable dragging on mobile
             >
                 <div
-                    className="pointer-events-auto bg-inherit rounded-lg shadow-lg animate-[openApp_0.2s_ease-out] absolute top-[10%] left-[20%] -translate-x-1/2 -translate-y-1/2"
+                    className={`
+                        pointer-events-auto 
+                        bg-inherit 
+                        rounded-lg 
+                        shadow-lg 
+                        animate-[openApp_0.2s_ease-out] 
+                        absolute 
+                        ${isMobile ? 'inset-0' : 'top-[10%] left-[20%] -translate-x-1/2 -translate-y-1/2'}
+                    `}
                     style={{ zIndex }}
                     onClick={bringToFront}
                 >
-                    <div className="app-toolbar cursor-move">
+                    <div className={`
+                        app-toolbar 
+                        ${isMobile ? 'cursor-default' : 'cursor-move'}
+                    `}>
                         <AppToolBar onClose={onClose} color={app.color}/>
                     </div>
                     <div onClick={e => e.stopPropagation()}>
