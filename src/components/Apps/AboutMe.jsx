@@ -95,7 +95,7 @@ const AboutMe = () => {
                             Click to copy email
                         </span>
                     </button>
-                    <SocialButton href="https://www.linkedin.com/in/safa-karagoz06" icon={linkedinIcon} alt="LinkedIn" />
+                    <SocialButton href="https://www.linkedin.com/in/safa-karagoz" icon={linkedinIcon} alt="LinkedIn" />
                 </div>
             </div>
         </div>
