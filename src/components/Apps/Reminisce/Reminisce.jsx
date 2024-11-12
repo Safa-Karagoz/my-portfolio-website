@@ -100,7 +100,7 @@ const Reminisce = () => {
    return (
       <div
          ref={containerRef}
-         className="w-full h-[600px] md:h-[700px] bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
+         className="w-full h-[500px] md:h-[600px] bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
       >
          {/* First Section */}
          <Section className="w-full h-full min-h-full snap-start p-4 md:p-8 flex items-center">

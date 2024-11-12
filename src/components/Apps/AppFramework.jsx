@@ -36,10 +36,10 @@ const AppFramework = ({ onClose, app }) => {
                 });
             } else {
                 setDimensions({
-                    width: '80vw',
+                    width: '70vw',
                     height: 'auto',
-                    top: '10%',
-                    left: '50%',
+                    top: '5%',
+                    left: '17%',
                     transform: 'translateX(-50%)'
                 });
             }

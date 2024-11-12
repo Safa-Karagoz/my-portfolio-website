@@ -55,7 +55,7 @@ const AboutMe = () => {
     };
 
     return (
-        <div className="p-8 max-w-[600px] flex justify-center items-center shadow-lg font-sans rounded-b-lg bg-gradient-to-br from-[#f9f9f9] to-[#dddddd]">
+        <div className="p-8 flex justify-center items-center shadow-lg font-sans rounded-b-lg bg-gradient-to-br from-[#f9f9f9] to-[#dddddd]">
             <Notification 
                 message="Email copied!" 
                 isVisible={showNotification} 

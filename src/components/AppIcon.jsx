@@ -27,9 +27,9 @@ const AppIcon = ({ app, isOpen, zIndex, onOpen, onClose, onFocus, isLoading }) =
                     src={app.iconSrc}
                     alt={app.name}
                     title={app.name}
-                    className="w-10 h-10 mb-2 rounded-[22.37%]"
+                    className="w-11 h-11 mb-2 rounded-[22.37%]"
                 />
-                <p className="m-0 text-[11px] sm:text-sm text-white font-semibold text-center break-words line-clamp-2 w-full">
+                <p className="m-0 text-[11px] sm:text-sm text-white font-semibold text-center break-words line-clamp-2 w-13">
                     {app.name}
                 </p>
             </div>
