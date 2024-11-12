@@ -71,6 +71,17 @@ const Section = ({ children, className = "" }) => {
 const Reminisce = () => {
    const containerRef = useRef();
    const [scrollY, setScrollY] = useState(0);
+   const [isMobile, setIsMobile] = useState(false);
+
+   useEffect(() => {
+      const handleResize = () => {
+         setIsMobile(window.innerWidth < 768);
+      };
+
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+   }, []);
 
    useEffect(() => {
       const handleScroll = () => {
@@ -89,56 +100,79 @@ const Reminisce = () => {
    return (
       <div
          ref={containerRef}
-         className="w-[60vw] h-[70vh] bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
+         className="w-full h-full bg-[#1e201e] overflow-y-auto snap-y snap-mandatory rounded-b-lg"
       >
-         {/* First Section */}
-         <Section className="snap-start p-8">
-            <div className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-               <div className="space-y-6">
-                  <div>
-                     <h1 className="text-5xl font-bold">
-                        <span className="bg-gradient-to-r from-[#697565] to-[#d48311] bg-clip-text text-transparent">
-                           Reminisce
-                        </span>
-                     </h1>
-                     <p className="text-lg text-[#ede0cc] font-semibold mt-2">
-                        A companion for your loved one with dementia
-                     </p>
+         <Section className="snap-start p-4 md:p-8">
+            <div className="max-w-4xl mx-auto w-full">
+               {/* Mobile Layout for Landing Model */}
+               <div className="block md:hidden mb-8">
+                  <div className="flex flex-col items-center">
+                     <div className="w-48 h-48 flex justify-center items-center">
+                        <LandingModel />
+                     </div>
+                     <div className="text-xl text-[#ede0cc] text-center font-semibold mt-4">
+                        <Typewriter
+                           options={{
+                              strings: ['How are you?', 'Your AI Companion', 'Always Here to Help'],
+                              autoStart: true,
+                              loop: true,
+                              delay: 75,
+                              deleteSpeed: 50,
+                           }}
+                        />
+                     </div>
                   </div>
-                  <a
-                     href="https://reminisce-two.vercel.app"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="inline-block text-[#ede0cc] border border-[#d48311] hover:bg-[#d48311] transition-all p-2 px-4 rounded-md"
-                  >
-                     <span className="font-medium">Check it out</span>
-                  </a>
                </div>
 
-               <div className="space-y-6 items-center justify-center">
-                  <div className="flex justify-center items-center">
-                     <LandingModel />
+               {/* Desktop and Mobile Content */}
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6 text-center md:text-left">
+                     <div>
+                        <h1 className="text-4xl md:text-5xl font-bold">
+                           <span className="bg-gradient-to-r from-[#697565] to-[#d48311] bg-clip-text text-transparent">
+                              Reminisce
+                           </span>
+                        </h1>
+                        <p className="text-base md:text-lg text-[#ede0cc] font-semibold mt-2">
+                           A companion for your loved one with dementia
+                        </p>
+                     </div>
+                     <a
+                        href="https://reminisce-two.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-[#ede0cc] border border-[#d48311] hover:bg-[#d48311] transition-all p-2 px-4 rounded-md"
+                     >
+                        <span className="font-medium">Check it out</span>
+                     </a>
                   </div>
-                  <div className="text-2xl text-[#ede0cc] text-center font-semibold">
-                     <Typewriter
-                        options={{
-                           strings: ['How are you?', 'Your AI Companion', 'Always Here to Help'],
-                           autoStart: true,
-                           loop: true,
-                           delay: 75,
-                           deleteSpeed: 50,
-                        }}
-                     />
+
+                  {/* Desktop-only LandingModel */}
+                  <div className="hidden md:flex flex-col space-y-6 items-center justify-center">
+                     <div className="flex justify-center items-center">
+                        <LandingModel />
+                     </div>
+                     <div className="text-2xl text-[#ede0cc] text-center font-semibold">
+                        <Typewriter
+                           options={{
+                              strings: ['How are you?', 'Your AI Companion', 'Always Here to Help'],
+                              autoStart: true,
+                              loop: true,
+                              delay: 75,
+                              deleteSpeed: 50,
+                           }}
+                        />
+                     </div>
                   </div>
                </div>
             </div>
          </Section>
 
          {/* Mission Section */}
-         <Section className="snap-start p-8">
+         <Section className="snap-start p-4 md:p-8">
             <div className="max-w-3xl mx-auto text-center">
-               <h2 className="text-3xl font-bold text-[#d48311] mb-6">Our Mission</h2>
-               <p className="text-[#ede0cc] text-lg leading-relaxed">
+               <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-6">Our Mission</h2>
+               <p className="text-base md:text-lg text-[#ede0cc] leading-relaxed">
                   Our project aims to support individuals suffering from dementia predominantly through active recall and "companionship."
                   We were inspired by the growing challenge of dementia and the devastation it causes to both patients and families.
                </p>
@@ -146,10 +180,10 @@ const Reminisce = () => {
          </Section>
 
          {/* Features Section */}
-         <Section className="snap-start p-8">
+         <Section className="snap-start p-4 md:p-8">
             <div className="max-w-4xl mx-auto w-full">
-               <h2 className="text-3xl font-bold text-[#d48311] mb-8 text-center">Key Features</h2>
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+               <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-8 text-center">Key Features</h2>
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <FeatureCard
                      icon={Brain}
                      title="Active Recall"
@@ -175,10 +209,10 @@ const Reminisce = () => {
          </Section>
 
          {/* HackRU Section */}
-         <Section className="snap-start p-8">
+         <Section className="snap-start p-4 md:p-8">
             <div className="max-w-4xl mx-auto w-full text-center">
                <div className="mb-8">
-                  <h2 className="text-3xl font-bold text-[#d48311] mb-2">
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#d48311] mb-2">
                      Built for HackRU 2024
                   </h2>
                   <h3 className="text-lg text-[#ede0cc]">
@@ -186,7 +220,7 @@ const Reminisce = () => {
                   </h3>
                </div>
 
-               <div className="flex gap-4 justify-center mb-8">
+               <div className="flex flex-wrap gap-4 justify-center mb-8">
                   <a
                      href="https://github.com/yusufsallam64/reminisce"
                      target="_blank"
@@ -242,4 +276,4 @@ const Reminisce = () => {
    );
 };
 
-export default Reminisce
+export default Reminisce;
