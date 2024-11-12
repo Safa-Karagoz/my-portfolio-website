@@ -157,7 +157,7 @@ const Analysis = () => {
          </div>
 
          {/* Transactions */}
-         <div className="bg-gray-800/50 rounded-2xl overflow-hidden">
+         <div className="bg-gray-800/50 rounded-2xl overflow-y-scroll">
             <table className="w-full">
                <thead>
                   <tr className="bg-gray-700/50">

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { TrendingUp, Star, Bell, User } from 'lucide-react';
+import { TrendingUp, Star, Bell, User, ChevronDown } from 'lucide-react';
 
 const Dashboard = () => {
   const [timeFilter, setTimeFilter] = useState('ALL TIME');
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const timeFilterOptions = ['ALL TIME', '12 MONTHS', '30 DAYS', '7 DAYS', '24 HOUR'];
+
   const favoriteKeys = [
     { 
       id: 1,
@@ -43,9 +45,60 @@ const Dashboard = () => {
     </div>
   );
 
+  // Mobile Time Group Dropdown 
+  const TimeFilterDropdown = () => (
+    <div className="relative">
+      <button
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg flex items-center justify-between"
+      >
+        <span>{timeFilter}</span>
+        <ChevronDown className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+      </button>
+      
+      {isDropdownOpen && (
+        <div className="absolute top-full left-0 right-0 mt-1 bg-gray-800 rounded-lg shadow-lg overflow-hidden z-50">
+          {timeFilterOptions.map((option) => (
+            <button
+              key={option}
+              onClick={() => {
+                setTimeFilter(option);
+                setIsDropdownOpen(false);
+              }}
+              className={`
+                w-full px-4 py-2 text-left transition-colors
+                ${timeFilter === option ? 'bg-blue-500 text-white' : 'text-gray-400 hover:bg-gray-700'}
+              `}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
+  // Desktop Time Group Button 
+  const TimeFilterButtons = () => (
+    <div className="flex gap-2">
+      {timeFilterOptions.map((filter) => (
+        <button
+          key={filter}
+          onClick={() => setTimeFilter(filter)}
+          className={`px-4 py-2 rounded-lg text-sm transition-colors ${
+            timeFilter === filter
+              ? 'bg-blue-500 text-white'
+              : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+          }`}
+        >
+          {filter}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div className="space-y-8 w-full">
-      {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-white mb-2">
           Welcome back, Safa
@@ -55,21 +108,13 @@ const Dashboard = () => {
         </p>
       </div>
 
-      {/* Time Filter */}
-      <div className="flex gap-2">
-        {['ALL TIME', '12 MONTHS', '30 DAYS', '7 DAYS', '24 HOUR'].map((filter) => (
-          <button
-            key={filter}
-            onClick={() => setTimeFilter(filter)}
-            className={`px-4 py-2 rounded-lg text-sm transition-colors ${
-              timeFilter === filter
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
-          >
-            {filter}
-          </button>
-        ))}
+      <div>
+        <div className="block md:hidden">
+          <TimeFilterDropdown />
+        </div>
+        <div className="hidden md:block">
+          <TimeFilterButtons />
+        </div>
       </div>
 
       {/* Stats Grid */}
