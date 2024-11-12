@@ -29,7 +29,7 @@ const AppIcon = ({ app, isOpen, zIndex, onOpen, onClose, onFocus, isLoading }) =
                     title={app.name}
                     className="w-10 h-10 mb-2 rounded-[22.37%]"
                 />
-                <p className="m-0 text-sm text-white font-semibold text-center break-words line-clamp-2 w-full">
+                <p className="m-0 text-[11px] sm:text-sm text-white font-semibold text-center break-words line-clamp-2 w-full">
                     {app.name}
                 </p>
             </div>
@@ -41,7 +41,7 @@ const AppIcon = ({ app, isOpen, zIndex, onOpen, onClose, onFocus, isLoading }) =
                         onClose={onClose}
                         onFocus={onFocus}
                     />
-                </div>  
+                </div>
             )}
         </>
     );

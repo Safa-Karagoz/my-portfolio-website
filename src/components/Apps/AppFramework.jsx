@@ -12,41 +12,64 @@ let windowCounter = 1000;
 const AppFramework = ({ onClose, app }) => {
     const [zIndex, setZIndex] = useState(() => windowCounter++);
     const [isMobile, setIsMobile] = useState(false);
+    const [dimensions, setDimensions] = useState({
+        width: '80vw',
+        height: 'auto',
+        top: '10%',
+        left: '50%',
+        transform: 'translateX(-50%)'
+    });
+
+    useEffect(() => {
+        const updateDimensions = () => {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            
+            if (mobile) {
+                const availableHeight = window.innerHeight - 24; // Subtract toolbar height
+                setDimensions({
+                    width: '100%',
+                    height: `${availableHeight}px`,
+                    top: '24px', 
+                    left: '0',
+                    transform: 'none'
+                });
+            } else {
+                setDimensions({
+                    width: '80vw',
+                    height: 'auto',
+                    top: '10%',
+                    left: '50%',
+                    transform: 'translateX(-50%)'
+                });
+            }
+        };
+
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+        return () => window.removeEventListener('resize', updateDimensions);
+    }, []);
 
     const bringToFront = () => {
         setZIndex(windowCounter++);
     };
 
-    useEffect(() => {
-        setZIndex(windowCounter++);
-        
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
     const renderApp = () => {
-        if (app.name === "About Me") {
-            return (<AboutMe />)
+        switch(app.name) {
+            case "About Me":
+                return <AboutMe />;
+            case "Interactive Globe":
+                return <InteractiveGlobe />;
+            case "Reminisce":
+                return <Reminisce />;
+            case "Friend.tech Analytics":
+                return <FriendAnalytics />;
+            case "Neon Night":
+                return <NeonNight />;
+            default:
+                return null;
         }
-        if (app.name === "Interactive Globe") {
-            return (<InteractiveGlobe />)
-        }
-        if (app.name === "Reminisce") {
-            return (<Reminisce />)
-        }
-        if (app.name === "Friend.tech Analytics") {
-            return (<FriendAnalytics />)
-        }
-        if (app.name === "Neon Night") {
-            return (<NeonNight />)
-        }
-        return null;
-    }
+    };
 
     return (
         <div className="fixed inset-0 pointer-events-none">
@@ -54,7 +77,7 @@ const AppFramework = ({ onClose, app }) => {
                 handle=".app-toolbar"
                 bounds="parent"
                 onStart={bringToFront}
-                disabled={isMobile} // Disable dragging on mobile
+                disabled={isMobile}
             >
                 <div
                     className={`
@@ -63,25 +86,35 @@ const AppFramework = ({ onClose, app }) => {
                         rounded-lg 
                         shadow-lg 
                         animate-[openApp_0.2s_ease-out] 
-                        absolute 
-                        ${isMobile ? 'inset-0' : 'top-[10%] left-[20%] -translate-x-1/2 -translate-y-1/2'}
+                        absolute
+                        overflow-hidden
+                        ${isMobile ? 'w-full' : ''}
                     `}
-                    style={{ zIndex }}
+                    style={{
+                        zIndex,
+                        ...dimensions
+                    }}
                     onClick={bringToFront}
                 >
                     <div className={`
                         app-toolbar 
                         ${isMobile ? 'cursor-default' : 'cursor-move'}
+                        sticky top-0 z-50
                     `}>
                         <AppToolBar onClose={onClose} color={app.color}/>
                     </div>
-                    <div onClick={e => e.stopPropagation()}>
+                    <div 
+                        onClick={e => e.stopPropagation()}
+                        className={`
+                            ${isMobile ? 'h-full overflow-auto' : ''}
+                        `}
+                    >
                         {renderApp()}
                     </div>
                 </div>
             </Draggable>
         </div>
     );
-}
+};
 
 export default AppFramework;
